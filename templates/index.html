@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painting with Brainwaves</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='synaptech_logo.png') }}">
+</head>
+<body>
+    <div class = 'container'>
+        <h1>Painting with Brainwaves</h1>
+        <img src="{{ url_for('plot') }}" alt="EEG Plot">
+
+    <footer>
+        <p>Synaptech Dawg Daze Demo &#8226; Sep 2023</p>
+    </footer>
+    </div>
+    
+</body>
+</html>

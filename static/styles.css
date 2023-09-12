@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Russo+One&display=swap');
+
+/* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #4279a9, #FFFFFF);
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px
+}
+
+footer{
+    color: black;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 17px;
+    text-align: center;
+    margin-top: 15px
+}
+
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+    display: block;
+    font-size: 20;
+    padding: 15px
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+p {
+    padding: 10px
+}
