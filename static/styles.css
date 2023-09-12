@@ -32,13 +32,15 @@ footer{
 h1 {
     font-family: 'Luckiest Guy', cursive;
     display: block;
-    font-size: 20;
+    font-size: 23;
     padding: 15px
 }
 
 img {
     display: block;
     margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px
 }
 
 p {

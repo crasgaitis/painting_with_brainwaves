@@ -25,6 +25,7 @@ def index():
 def plot():
 
     def generate_plot():
+        
         # Search for active LSL streams
         print('Looking for an EEG stream...')
         streams = resolve_byprop('type', 'EEG', timeout=2)
@@ -58,6 +59,7 @@ def plot():
         print('Press Ctrl-C in the console to break the while loop.')
     
         fig, ax = plt.subplots()
+
         while True:
             # Obtain EEG data from the LSL stream
             eeg_data, timestamp = inlet.pull_chunk(
@@ -79,10 +81,6 @@ def plot():
             band_powers = compute_band_powers(data_epoch, fs)
             band_buffer, _ = update_buffer(band_buffer,
                                                     np.asarray([band_powers]))
-            
-            # Compute the average band powers for all epochs in buffer
-            # This helps to smooth out noise
-            # smooth_band_powers = np.mean(band_buffer, axis=0)
 
             delta = band_powers[0]
             theta = band_powers[1]
@@ -116,18 +114,17 @@ def plot():
             color_image[:, :, 2] = color[2] * 255
 
             # Display the Julia fractal with the determined color
-            ax.clear()
+            img_data = io.BytesIO()
             ax.imshow(julia_img, cmap='gray')
             ax.imshow(color_image, alpha=0.5)
             ax.set_title(f'Alpha: {alpha:.2f}, Beta: {beta:.2f}, Theta: {theta:.2f}, Delta: {delta:.2f}')
-            plt.pause(0.25)
+            
+            fig.savefig(img_data, format='png', bbox_inches='tight', pad_inches=0, transparent=True)
 
-            # Convert the plot to an image
-            buf = io.BytesIO()
-            plt.savefig(buf, format='png')
-            buf.seek(0)
+            img_data.seek(0)
             yield (b'--frame\r\n'
-                   b'Content-Type: image/png\r\n\r\n' + buf.read() + b'\r\n')
+                b'Content-Type: image/png\r\n\r\n' + img_data.read() + b'\r\n')
+
 
     return Response(generate_plot(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
