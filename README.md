@@ -1,5 +1,5 @@
 # 🧠 Painting with Brainwaves
-**Synaptech demo** <br/>
+### 👩‍🏫 Synaptech demo
 Discover the secrets inside your brain as we track its electrical activity in real time, translate it into meaningful patterns, and use it to create stunning art. Then, test your knowledge in a friendly competition for a chance to win some cool prizes!
 
 Synaptech is a neuroengineering focused RSO, welcome to any and all majors.
@@ -14,4 +14,4 @@ Synaptech is a neuroengineering focused RSO, welcome to any and all majors.
 
 Another cool site to play around with is [eegedu.com](https://eegedu.com/). You do not need a 3rd party application (like Petal) to try this!*
 
-*Code by Catherine Rasgaitis, with adapted utility functions from the [Muse LSL repo](https://github.com/alexandrebarachant/muse-lsl/blob/master/examples/utils.py).*
+*Code by Catherine Rasgaitis, with adapted utility functions from the*[Muse LSL repo](https://github.com/alexandrebarachant/muse-lsl/blob/master/examples/utils.py).
