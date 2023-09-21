@@ -21,14 +21,6 @@ body {
     border-radius: 25px
 }
 
-footer{
-    color: black;
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 17px;
-    text-align: center;
-    margin-top: 15px
-}
-
 h1 {
     font-family: 'Luckiest Guy', cursive;
     display: block;
@@ -44,5 +36,24 @@ img {
 }
 
 p {
-    padding: 10px
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+#caption {
+    padding-left: 10vw;
+    padding-right: 10vw
+}
+
+#refresh {
+    font-size: 13px
+}
+
+footer p{
+    color: black;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 17px;
+    text-align: center;
+    margin-top: 15px
 }

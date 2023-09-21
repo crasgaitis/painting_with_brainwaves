@@ -9,15 +9,9 @@ epoching, and transforming EEG data into frequency bands
 Muse LSL Tools adapted from https://github.com/alexandrebarachant/muse-lsl/blob/master/examples/utils.py
 """
 
-import os
-import sys
-from tempfile import gettempdir
-from subprocess import call
 from matplotlib.colors import LinearSegmentedColormap
-
-import matplotlib.pyplot as plt
 import numpy as np
-from sklearn import svm
+import openai
 from scipy.signal import butter, lfilter, lfilter_zi
 
 
@@ -213,3 +207,24 @@ def create_custom_colormap():
     cmap_name = 'custom_cmap'
     cm = LinearSegmentedColormap.from_list(cmap_name, colors, N=256)
     return cm
+
+def generate_response(prompt):
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=30,
+        n=1,
+        stop=None,
+        temperature=0.6,
+    )
+    
+    return response.choices[0].text
+
+def generate_image(prompt):
+    response = openai.Image.create(
+    prompt=prompt,
+    n=1,
+    size="512x512",
+    )
+    
+    return response['data'][0]['url']

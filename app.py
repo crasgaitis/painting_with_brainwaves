@@ -2,8 +2,9 @@ import io
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
-from flask import Flask, render_template, Response, request
+import matplotlib
+from flask import Flask, render_template, Response
+import openai
 
 # Import functions from the utils module
 from utils import update_buffer, get_last_data, compute_band_powers, julia, create_custom_colormap
@@ -23,7 +24,7 @@ def index():
 
 @app.route('/plot')
 def plot():
-
+    matplotlib.use('Agg')
     def generate_plot():
         
         # Search for active LSL streams
@@ -81,7 +82,6 @@ def plot():
             band_powers = compute_band_powers(data_epoch, fs)
             band_buffer, _ = update_buffer(band_buffer,
                                                     np.asarray([band_powers]))
-
             delta = band_powers[0]
             theta = band_powers[1]
             alpha = band_powers[2]
@@ -124,7 +124,6 @@ def plot():
             img_data.seek(0)
             yield (b'--frame\r\n'
                 b'Content-Type: image/png\r\n\r\n' + img_data.read() + b'\r\n')
-
 
     return Response(generate_plot(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
