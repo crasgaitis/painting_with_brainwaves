@@ -6,7 +6,7 @@ Synaptech is a neuroengineering focused RSO, welcome to any and all majors.
 
 ### ⚙️ Instructions to run app
 1. Turn on your Muse device.
-2. Open Petal Metics and start the LSL stream.
+2. Open Petal Metrics and start the LSL stream.
 3. Run the Julia fractals visualizations by running app.py.
 4. Run the DALL E visualizations by running app2.py.
 5. Try changing the way the art is generated. Consider changing the way fractals/colors are generated for Julia fractals, or how the original prompt is incorporating brainwave data for DALL E. 
