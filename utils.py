@@ -210,7 +210,7 @@ def create_custom_colormap():
 
 def generate_response(prompt):
     response = openai.Completion.create(
-        engine="text-davinci-003",
+        engine="gpt-3.5-turbo-instruct",
         prompt=prompt,
         max_tokens=30,
         n=1,

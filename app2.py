@@ -19,7 +19,7 @@ SHIFT_LENGTH = EPOCH_LENGTH - OVERLAP_LENGTH
 INDEX_CHANNEL = [0]
 
 # OpenAI key
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = # key here
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 @app.route('/')
